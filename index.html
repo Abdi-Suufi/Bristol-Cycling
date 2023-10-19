@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 </head>
 
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
     <nav class="navbar navbar-expand-md fixed-top navbar-light" id="mainNav">
         <div class="container"><a class="navbar-brand" href="#">CycleAnywhere</a><button data-bs-toggle="collapse"
@@ -35,7 +37,7 @@
                     <div class="col-lg-8 mx-auto">
                         <h1 class="brand-heading">CycleAnywhere</h1>
                         <p class="intro-text">Find your local cycle shop for bikes and bike servicing.<br>Created with
-                            love.</p><a class="btn btn-link btn-circle" role="button" href="#about"><i
+                            BristolOpenData</p><a class="btn btn-link btn-circle" role="button" href="#about"><i
                                 class="fa fa-angle-double-down animated"></i></a>
                     </div>
                 </div>
@@ -98,21 +100,70 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Contact</h2>
-                    <p>Cycle Anywhere is a user-friendly website designed to cater to the needs of cycling enthusiasts
-                        and riders of all levels who are looking to explore new areas and find nearby cycle shops with
-                        ease. This platform offers a variety of features and functionalities to make your cycling
-                        experience more enjoyable and convenient.</p>
+                    <form id="emailForm">
+                        <div class="form-group">
+                            <label for="name">Full name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject:</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 4px;">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
+
     <footer>
         <div class="container text-center">
             <p>Copyright ©&nbsp;CycleAnywhere 2023</p>
         </div>
     </footer>
+
+    
+
+
+    <!--Script for contact section to be functional-->
+    <script>
+        document.getElementById("emailForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            sendEmail();
+        });
+
+        function sendEmail() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var subject = document.getElementById("subject").value;
+            var message = document.getElementById("message").value;
+
+            // You can use your email sending logic here, e.g., SMTP.js
+            emailjs.sendForm('service_jgqmcrf', 'template_hajzas6', {
+                name: name,
+                email: email,
+                subject: subject,
+                message: message
+            }, 'frYMEZHApy2ByW99C').then(function (res) {
+                console.log(res);
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
+    </script>
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/grayscale.js"></script>
+
+    <!--Doesn't work-->
     <script>
         // Use JavaScript to fetch data and populate the table
         fetch('/getdata') // Replace this URL with the appropriate endpoint
