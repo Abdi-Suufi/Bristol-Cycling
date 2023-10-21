@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="database.js"></script>
     <script>
         // Use JavaScript to fetch data and populate the table
         fetch('/getdata') // Replace this URL with the appropriate endpoint
@@ -117,7 +118,7 @@
                 <div class="col-lg-8 mx-auto">
                     <h2>Table Data from Database</h2>
                     <h3>I HATE SQL</h3>
-                    <table id="data-table">
+                    <table class="table table-striped" id="data-table">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -165,7 +166,7 @@
                             <label for="message">Message:</label>
                             <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="margin: 4px;">Send Message</button>
+                        <button type="submit" class="btn btn-dark" id="submitbtn" style="margin: 4px;">Send Message</button>
                     </form>
                 </div>
             </div>
