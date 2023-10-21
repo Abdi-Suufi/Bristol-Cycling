@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
+<script> import emailjs from 'emailjs-com' 
 
+</script>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -12,6 +14,24 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="database.js"></script>
+    <script>
+        emailjs.init('frYMEZHApy2ByW99C'); // emailjs id
+      
+        const sendEmail = (e) => {
+          e.preventDefault();
+      
+          const form = document.getElementById('emailForm');
+      
+          emailjs.sendForm('service_jgqmcrf', 'template_hajzas6', form)
+            .then((response) => {
+              console.log('Email sent:', response);
+              form.reset(); //resets the form after sending
+            })
+            .catch((error) => {
+              console.error('Email error:', error);
+            });
+        };
+    </script>
     <script>
         // Use JavaScript to fetch data and populate the table
         fetch('/getdata') // Replace this URL with the appropriate endpoint
@@ -31,8 +51,6 @@
                 });
             });
     </script>
-    <!--Script so that contact section functions using emailjs-->
-    <script src="assets/js/emailjs.js"></script>
 </head>
 
 
