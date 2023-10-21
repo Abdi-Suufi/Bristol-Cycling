@@ -14,5 +14,3 @@ emailjs.init('frYMEZHApy2ByW99C'); // emailjs id
               console.error('Email error:', error);
             });
         };
-
-        import emailjs from 'emailjs-com'
