@@ -19,7 +19,7 @@ connection.connect(err => {
 
 const server = http.createServer((req, res) => {
     if (req.url === '/getdata') {
-        const QUERY = 'SELECT * FROM `cycle_shop`';
+        const QUERY = 'SELECT * FROM `cycle_shop.cycle_shops`';
 
         connection.query(QUERY, (err, results) => {
             if (err) {

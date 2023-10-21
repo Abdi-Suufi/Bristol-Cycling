@@ -7,8 +7,7 @@
     <title>Bristol Cycling</title>
     <meta name="description" content="Find your local bike shop for new bikes and servicing.">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
@@ -32,31 +31,12 @@
                 });
             });
     </script>
-
-    <script>
-        emailjs.init('frYMEZHApy2ByW99C'); // emailjs id
-      
-        const sendEmail = (e) => {
-          e.preventDefault();
-      
-          const form = document.getElementById('emailForm');
-      
-          emailjs.sendForm('service_jgqmcrf', 'template_hajzas6', form)
-            .then((response) => {
-              console.log('Email sent:', response);
-              form.reset(); //resets the form after sending
-            })
-            .catch((error) => {
-              console.error('Email error:', error);
-            });
-        };
-      </script>
-    <script>import emailjs from 'emailjs-com'</script>
+    <!--Script so that contact section functions using emailjs-->
+    <script src="assets/js/emailjs.js"></script>
 </head>
 
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
-
     <nav class="navbar navbar-expand-md fixed-top navbar-light" id="mainNav">
         <div class="container"><a class="navbar-brand" href="#">Bristol Cycling</a><button data-bs-toggle="collapse"
                 class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button"
@@ -88,7 +68,7 @@
         </div>
     </header>
     <!--about section of website-->
-    <section class="text-center content-section" id="about" >
+    <section class="text-center content-section" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
@@ -101,7 +81,7 @@
             </div>
         </div>
     </section>
-    <!--section with map not properly integrated atm-->
+    <!--section with map not properly integrated the way i want atm-->
     <section id="map" class="text-center content-section masthead" style="height: 700px; background-image:url('assets/img/road.jpg');">
         <div class="container">
             <div class="row">
@@ -112,7 +92,7 @@
     </section>
 
     <!--Section to display table-->
-    <section class="text-center content-section masthead" id="table" >
+    <section class="text-center content-section masthead" id="table">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
@@ -131,7 +111,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Data will be inserted here using JavaScript -->
+                            <!-- Data will be inserted here using JavaScript but doesnt workkkkkkkkkkkk-->
                         </tbody>
                     </table>
                 </div>
@@ -139,12 +119,9 @@
         </div>
     </section>
 
-    
+    <!--Contact section working finally-->
     <section class="text-center content-section masthead" id="contact" style="background-image:url('assets/img/bike2.jpg');">
         <script src="https://smtpjs.com/v3/smtp.js"></script>
-        <video  id="background-video">
-            <source src="assets/video/blacktopo.mp4" type="video/mp4">
-        </video>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
@@ -166,7 +143,7 @@
                             <label for="message">Message:</label>
                             <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-dark" id="submitbtn" style="margin: 4px;">Send Message</button>
+                        <button type="submit" class="btn btn-dark" style="margin: 4px;">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -175,17 +152,12 @@
 
     <footer>
         <div class="container text-center">
-            <p>Copyright ©&nbsp;CycleAnywhere 2023</p>
+            <p>Copyright ©&nbsp;Bristol Cycling 2023</p>
         </div>
     </footer>
-
-    <!--Script for contact section to be functional-->
-    
-
+    <!--Bugs out if its in the head tag idk why-->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/grayscale.js"></script>
-    
-    <!--Doesn't work-->
     
 </body>
 
