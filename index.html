@@ -4,19 +4,60 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>CycleAnywhere</title>
+    <title>Bristol Cycling</title>
     <meta name="description" content="Find your local bike shop for new bikes and servicing.">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Use JavaScript to fetch data and populate the table
+        fetch('/getdata') // Replace this URL with the appropriate endpoint
+            .then(response => response.json())
+            .then(data => {
+                const table = document.getElementById('data-table');
+                const tbody = table.querySelector('tbody');
+                
+                data.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.id}</td>
+                        <td>${item.name}</td>
+                        <td>${item.description}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            });
+    </script>
+
+    <script>
+        emailjs.init('frYMEZHApy2ByW99C'); // emailjs id
+      
+        const sendEmail = (e) => {
+          e.preventDefault();
+      
+          const form = document.getElementById('emailForm');
+      
+          emailjs.sendForm('service_jgqmcrf', 'template_hajzas6', form)
+            .then((response) => {
+              console.log('Email sent:', response);
+              form.reset(); //resets the form after sending
+            })
+            .catch((error) => {
+              console.error('Email error:', error);
+            });
+        };
+      </script>
+    <script>import emailjs from 'emailjs-com'</script>
 </head>
 
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
+
     <nav class="navbar navbar-expand-md fixed-top navbar-light" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#">CycleAnywhere</a><button data-bs-toggle="collapse"
+        <div class="container"><a class="navbar-brand" href="#">Bristol Cycling</a><button data-bs-toggle="collapse"
                 class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i
                     class="fa fa-bars"></i></button>
@@ -24,17 +65,19 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item nav-link"><a class="nav-link active" href="#about">About</a></li>
                     <li class="nav-item nav-link"><a class="nav-link" href="#map">Map</a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" href="#contact">contact</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="#table">Table</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <header class="masthead" style="background-image:url('assets/img/bike.jpg');">
         <div class="intro-body">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <h1 class="brand-heading">CycleAnywhere</h1>
+                        <h1 class="brand-heading mx-auto">Bristol Cycling</h1>
                         <p class="intro-text">Find your local cycle shop for bikes and bike servicing.<br>Created with BristolOpenData</p>
                         <a class="btn btn-link btn-circle" role="button" href="#about"><i
                                 class="fa fa-angle-double-down animated"></i></a>
@@ -44,11 +87,11 @@
         </div>
     </header>
     <!--about section of website-->
-    <section class="text-center content-section" id="about">
+    <section class="text-center content-section" id="about" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h2>About CycleAnywhere</h2>
+                    <h2>About Bristol Cycling</h2>
                     <p>Cycle Anywhere is a user-friendly website designed to cater to the needs of cycling enthusiasts
                         and riders of all levels who are looking to explore new areas and find nearby cycle shops with
                         ease. This platform offers a variety of features and functionalities to make your cycling
@@ -58,21 +101,22 @@
         </div>
     </section>
     <!--section with map not properly integrated atm-->
-    <section id="map" style="height: 500px; background-image:url('assets/img/road.jpg');">
+    <section id="map" class="text-center content-section masthead" style="height: 700px; background-image:url('assets/img/road.jpg');">
         <div class="container">
             <div class="row">
                 <div class="map-clean"><iframe allowfullscreen="" frameborder="0" src="https://arcg.is/m0r49"
-                        width="100%" height="450" style="margin: 20px;"></iframe></div>
+                        width="100%" height="650px" style="margin: 20px;"></iframe></div>
             </div>
         </div>
     </section>
 
     <!--Section to display table-->
-    <section class="text-center content-section" id="table" style="height: 900px">
+    <section class="text-center content-section masthead" id="table" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Table Data from Database</h2>
+                    <h3>I HATE SQL</h3>
                     <table id="data-table">
                         <thead>
                             <tr>
@@ -94,8 +138,8 @@
         </div>
     </section>
 
-    <script>import emailjs from 'emailjs-com'</script>
-    <section class="text-center content-section" id="contact">
+    
+    <section class="text-center content-section masthead" id="contact" style="background-image:url('assets/img/bike2.jpg');">
         <script src="https://smtpjs.com/v3/smtp.js"></script>
         <video  id="background-video">
             <source src="assets/video/blacktopo.mp4" type="video/mp4">
@@ -104,7 +148,7 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Contact</h2>
-                    <form onSubmit={sendEmail} id="emailForm">
+                    <form onSubmit="sendEmail(event)" id="emailForm">
                         <div class="form-group">
                             <label for="name">Full name:</label>
                             <input type="text" class="form-control" id="name" name="name" required>
@@ -134,59 +178,14 @@
         </div>
     </footer>
 
-    
-
-
     <!--Script for contact section to be functional-->
-    <script>
-        document.getElementById("emailForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-            sendEmail();
-        });
-
-        function sendEmail() {
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            var subject = document.getElementById("subject").value;
-            var message = document.getElementById("message").value;
-
-            // You can use your email sending logic here, e.g., SMTP.js
-            emailjs.sendForm('service_jgqmcrf', 'template_hajzas6', {
-                name: name,
-                email: email,
-                subject: subject,
-                message: message
-            }, 'frYMEZHApy2ByW99C').then(function (res) {
-                console.log(res);
-            }).catch(function (err) {
-                console.log(err);
-            });
-        }
-    </script>
+    
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/grayscale.js"></script>
-
+    
     <!--Doesn't work-->
-    <script>
-        // Use JavaScript to fetch data and populate the table
-        fetch('/getdata') // Replace this URL with the appropriate endpoint
-            .then(response => response.json())
-            .then(data => {
-                const table = document.getElementById('data-table');
-                const tbody = table.querySelector('tbody');
-                
-                data.forEach(item => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${item.id}</td>
-                        <td>${item.name}</td>
-                        <td>${item.description}</td>
-                    `;
-                    tbody.appendChild(row);
-                });
-            });
-    </script>
+    
 </body>
 
 </html>
