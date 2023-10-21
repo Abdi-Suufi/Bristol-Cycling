@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - CycleAnywhere</title>
+    <title>CycleAnywhere</title>
     <meta name="description" content="Find your local bike shop for new bikes and servicing.">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 </head>
 
-<script src="https://smtpjs.com/v3/smtp.js"></script>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
     <nav class="navbar navbar-expand-md fixed-top navbar-light" id="mainNav">
@@ -36,8 +35,8 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h1 class="brand-heading">CycleAnywhere</h1>
-                        <p class="intro-text">Find your local cycle shop for bikes and bike servicing.<br>Created with
-                            BristolOpenData</p><a class="btn btn-link btn-circle" role="button" href="#about"><i
+                        <p class="intro-text">Find your local cycle shop for bikes and bike servicing.<br>Created with BristolOpenData</p>
+                        <a class="btn btn-link btn-circle" role="button" href="#about"><i
                                 class="fa fa-angle-double-down animated"></i></a>
                     </div>
                 </div>
@@ -95,12 +94,17 @@
         </div>
     </section>
 
-    <section class="text-center content-section" id="contact" style="background-image:url('assets/img/contact.jpg');>
+    <script>import emailjs from 'emailjs-com'</script>
+    <section class="text-center content-section" id="contact">
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <video  id="background-video">
+            <source src="assets/video/blacktopo.mp4" type="video/mp4">
+        </video>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Contact</h2>
-                    <form id="emailForm">
+                    <form onSubmit={sendEmail} id="emailForm">
                         <div class="form-group">
                             <label for="name">Full name:</label>
                             <input type="text" class="form-control" id="name" name="name" required>
@@ -117,7 +121,7 @@
                             <label for="message">Message:</label>
                             <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="margin-top: 4px;">Send Message</button>
+                        <button type="submit" class="btn btn-primary" style="margin: 4px;">Send Message</button>
                     </form>
                 </div>
             </div>
