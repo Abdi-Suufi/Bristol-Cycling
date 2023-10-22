@@ -4,6 +4,7 @@
 
 </script>
 <head>
+    
     <link rel="shortcut icon" type="image" href="assets/img/bike-favicon.jpg">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -79,7 +80,20 @@
                         and riders of all levels who are looking to explore new areas and find nearby cycle shops with
                         ease. This platform offers a variety of features and functionalities to make your cycling
                         experience more enjoyable and convenient.</p>
+                        <!-- <div id="weather-info"></div> -->
                 </div>
+                <div class="row">
+                    <link rel="stylesheet" href="styles.css">
+                    <div class="column">
+                      <img src="assets/img/bike6.jpg" alt="Snow" style="width:60%">
+                    </div>
+                    <div class="column">
+                      <img src="assets/img/bike5.jpg" alt="Forest" style="width:60%">
+                    </div>
+                    <div class="column">
+                      <img src="assets/img/bike4.jpg" alt="Mountains" style="width:60%">
+                    </div>
+                  </div>
             </div>
         </div>
     </section>
@@ -119,6 +133,7 @@
                 </div>
             </div>
         </div>
+        
     </section>
 
     <!--Contact section working finally-->
@@ -160,6 +175,42 @@
     <!--Bugs out if its in the head tag idk why-->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/grayscale.js"></script>
+    <script>
+  // Function to fetch weather data from OpenWeatherMap
+  function getWeather() {
+    const apiKey = '2645d3a34171a029a0ec6d4265529d9a'; // Replace with your API key
+    const city = 'Bristol';
+    const country = 'UK';
+    const units = 'metric'; // Change to 'imperial' for Fahrenheit
+
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${units}&appid=${apiKey}`;
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        const weatherInfo = document.getElementById('weather-info');
+
+        // Display weather information
+        const temperature = data.main.temp;
+        const description = data.weather[0].description;
+        const icon = data.weather[0].icon;
+
+        weatherInfo.innerHTML = `
+          <h3>Weather in ${city}, ${country}</h3>
+          <p>Temperature: ${temperature}°C</p>
+          <p>Description: ${description}</p>
+          <img src="https://openweathermap.org/img/wn/${icon}.png" alt="Weather Icon">
+        `;
+      })
+      .catch((error) => {
+        console.error('Error fetching weather data:', error);
+        weatherInfo.innerHTML = 'Weather data unavailable';
+      });
+  }
+
+  // Call the function to get weather data when the page loads
+  getWeather();
+</script>
     
 </body>
 
