@@ -18,7 +18,7 @@ connection.connect(err => {
 });
 
 const server = http.createServer((req, res) => {
-    if (req.url === '/getdata') {
+    if (req.url === 'http://localhost:3000/getdata') {
         const QUERY = 'SELECT * FROM `cycle_shop.cycle_shops`';
 
         connection.query(QUERY, (err, results) => {
