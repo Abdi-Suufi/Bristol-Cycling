@@ -9,32 +9,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Bristol Cycling</title>
-    <meta name="description" content="Find your local bike shop for new bikes and servicing.">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="assets/js/emailjs.js"></script>
-    <script>
-        // Use JavaScript to fetch data and populate the table
-        fetch('/getdata') // Replace this URL with the appropriate endpoint
-            .then(response => response.json())
-            .then(data => {
-                const table = document.getElementById('data-table');
-                const tbody = table.querySelector('tbody');
-
-                data.forEach(item => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${item.id}</td>
-                        <td>${item.name}</td>
-                        <td>${item.description}</td>
-                    `;
-                    tbody.appendChild(row);
-                });
-            });
-    </script>
 </head>
 
 
@@ -53,6 +33,7 @@
             </div>
         </div>
     </nav>
+
     <!--Top page-->
     <header class="masthead" style="background-image:url('assets/img/bike.jpg');">
         <div class="intro-body">
@@ -60,13 +41,14 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h1 class="brand-heading mx-auto">Bristol Cycling</h1>
-                        <p class="intro-text">Find your local cycle shop for bikes and bike servicing.<br>Created with BristolOpenData <br><a id="weather-info" style="color: white"></a></p>
+                        <p class="intro-text">Find your local bike shop for new bikes and servicing.<br>Created with BristolOpenData <br><!-- <a id="weather-info" style="color: white"> --></a></p>
                         <a class="btn btn-link btn-circle" role="button" href="#about"><i class="fa fa-angle-double-down animated"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
     <!--about section of website-->
     <section class="text-center content-section" id="about">
         <div class="container">
@@ -77,7 +59,6 @@
                         and riders of all levels who are looking to explore new areas and find nearby cycle shops with
                         ease. This platform offers a variety of features and functionalities to make your cycling
                         experience more enjoyable and convenient.</p>
-
                 </div>
                 <div class="row">
                     <link rel="stylesheet" href="styles.css">
