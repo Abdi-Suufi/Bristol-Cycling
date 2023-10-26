@@ -10,12 +10,13 @@
             <th>Region</th>
         </tr>
 
+        <!--Database connection-->
         <?php
         $conn = mysqli_connect("localhost", "root", "", "cycle_shop");
         if ($conn->connect_error) {
             die("connection failed:" . $conn->connect_error);
         }
-
+        
         // Requested columns from database
         $sql = "SELECT NAME, ADDRESS, DESCRIPTION, WEBSITE, PHONE, SERVICES_PROVIDED, REGION FROM CYCLE_SHOPS";
         $result = $conn->query($sql);
