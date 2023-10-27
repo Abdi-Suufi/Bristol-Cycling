@@ -88,13 +88,12 @@
     <!--Section to display table-->
     <section class="text-center content-section masthead" id="table">
         <div class="container">
-            <div class="col-lg-8 ">
+            <div class="col-lg-8 mx-auto">
                 <h2 class="center-text">Table Data from Database</h2>
                 <h3>I HATE SQL</h3>
                 <?php
                 include 'database.php';
                 ?>
-                <a id="weather-info"></a>
             </div>
         </div>
     </section>
