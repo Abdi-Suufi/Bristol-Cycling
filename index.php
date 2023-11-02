@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
-<script>
-    import emailjs from 'emailjs-com'
-</script>
 
 <head>
     <link rel="shortcut icon" type="image" href="assets/img/bike-favicon.jpg">
@@ -12,11 +9,10 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="assets/js/emailjs.js"></script>
+    <script src="assets/js/weatherapi.js"></script>
 </head>
-
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
     <nav class="navbar navbar-expand-md fixed-top navbar-light" id="mainNav">
@@ -137,47 +133,7 @@
     <!--Bugs out if its in the head tag idk why-->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/grayscale.js"></script>
-    <script>
-        // Function to fetch weather data from OpenWeatherMap
-        function getWeather() {
-            const apiKey = '2645d3a34171a029a0ec6d4265529d9a'; // Replace with your API key
-            const city = 'Bristol';
-            const country = 'UK';
-            const units = 'metric'; // Change to 'imperial' for Fahrenheit
-
-            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${units}&appid=${apiKey}`;
-
-            fetch(apiUrl)
-                .then((response) => response.json())
-                .then((data) => {
-                    const weatherInfo = document.getElementById('weather-info');
-                    const weatherInfoNav = document.getElementById('weather-infoNav');
-
-                    // Display weather information
-                    const temperature = data.main.temp;
-                    const description = data.weather[0].description;
-                    const icon = data.weather[0].icon;
-
-                    weatherInfo.innerHTML = `
-          <!-- <h3>Weather in ${city}, ${country}</h3>  might use if i move from where i have it-->
-          <p>Temperature: ${temperature}°C</p>
-          <p>Description: ${description}</p>
-          <img src="https://openweathermap.org/img/wn/${icon}.png" alt="Weather Icon">
-        `;
-
-                    weatherInfoNav.innerHTML = `
-          <a>${temperature}°C  </a>  
-        `;
-                })
-                .catch((error) => {
-                    console.error('Error fetching weather data:', error);
-                    weatherInfo.innerHTML = 'Weather data unavailable';
-                });
-        }
-
-        // Call the function to get weather data when the page loads
-        getWeather();
-    </script>
+    
 
 </body>
 
