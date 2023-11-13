@@ -7,13 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Bristol Cycling</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="assets/js/emailjs.js"></script>
     <script src="assets/js/weatherapi.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
+<style>
+    ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: black;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 10px;
+  }
 
+</style>
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
     <nav class="navbar navbar-expand-md fixed-top navbar-light" id="mainNav">
         <div class="container"><a class="navbar-brand" href="#">Bristol Cycling</a><button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
@@ -38,13 +52,13 @@
                     <div class="col-lg-8 mx-auto">
                         <h1 class="brand-heading mx-auto">Bristol Cycling</h1>
                         <p class="intro-text">Find your local bike shop for new bikes and servicing.<br>Created with BristolOpenData <br><!-- <a id="weather-info" style="color: white"> --></a></p>
-                        <a class="btn btn-link btn-circle" role="button" href="#about"><i class="fa fa-angle-double-down animated"></i></a>
+                        <a class="btn btn-link btn-circle" role="button" href="#about"><i class="fa-solid fa-gamepad"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
+    
     <!--about section of website-->
     <section class="text-center content-section" id="about">
         <div class="container">
@@ -57,7 +71,7 @@
                         experience more enjoyable and convenient.</p>
                 </div>
                 <div class="row">
-                    <link rel="stylesheet" href="styles.css">
+
                     <div class="column">
                         <img src="assets/img/bike6.jpg" alt="Snow" style="width:60%">
                     </div>
@@ -80,6 +94,16 @@
             </div>
         </div>
     </section>
+    
+    <style>
+        table {
+            max-width: 100%;
+        }
+
+        th, td {
+            width: auto;
+        }
+    </style>
 
     <!--Section to display table-->
     <section class="text-center content-section masthead" id="table">
@@ -132,8 +156,8 @@
     </footer>
     <!--Bugs out if its in the head tag idk why-->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/grayscale.js"></script>
-    
+    <script src="assets/js/navbar.js"></script>
+
 
 </body>
 

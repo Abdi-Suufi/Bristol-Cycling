@@ -18,15 +18,22 @@
     display: table;
   }
 
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
   
-  ::-webkit-scrollbar-track {
-    background: black;
+
+  table {
+    max-width: 100%;
+}
+
+th, td {
+    width: auto; /* or set percentage widths */
+}
+td {
+  word-wrap: break-word;
+  max-width: 100px; /* Adjust as needed */
+}
+
+@media (max-width: 767px) {
+  .hide-on-mobile {
+      display: none;
   }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: white;
-    border-radius: 10px;
-  }
+}
