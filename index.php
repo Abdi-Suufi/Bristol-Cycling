@@ -8,37 +8,44 @@
     <title>Bristol Cycling</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/56e72382bd.js" crossorigin="anonymous"></script> <!--icon for l-->
     <script src="assets/js/emailjs.js"></script>
     <script src="assets/js/weatherapi.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
+
+<!--Doesn't work when i put it on styles.css idk why-->
 <style>
     ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: black;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background-color: white;
-    border-radius: 10px;
-  }
+        width: 8px;
+    }
 
+    ::-webkit-scrollbar-track {
+        background: black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: white;
+        border-radius: 10px;
+    }
+/* 
+    #weather-infoNav {
+  position: fixed;
+  right: 0;
+} */
 </style>
+
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
-    <nav class="navbar navbar-expand-md fixed-top navbar-light" id="mainNav">
+    <nav class="navbar navbar-expand-md fixed-top" id="mainNav">
         <div class="container"><a class="navbar-brand" href="#">Bristol Cycling</a><button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item nav-link"><a class="nav-link active" href="#about">About</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link active" href="#about">About</a></li> <!--Button links on nav bar. links to sections-->
                     <li class="nav-item nav-link"><a class="nav-link" href="#map">Map</a></li>
                     <li class="nav-item nav-link"><a class="nav-link" href="#table">Table</a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item nav-link"></a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" id="weather-infoNav"></a></li>
+                    <li style="margin-right: 8px;" class="nav-item nav-link"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" id="weather-infoNav"></a></li><!--Displays current weather of bristol-->
                 </ul>
             </div>
         </div>
@@ -51,14 +58,14 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <h1 class="brand-heading mx-auto">Bristol Cycling</h1>
-                        <p class="intro-text">Find your local bike shop for new bikes and servicing.<br>Created with BristolOpenData <br><!-- <a id="weather-info" style="color: white"> --></a></p>
-                        <a class="btn btn-link btn-circle" role="button" href="#about"><i class="fa-solid fa-gamepad"></i></a>
+                        <p class="intro-text">Find your local bike shop for new bikes and servicing.<br>Start Searching! <br><!-- <a id="weather-info" style="color: white"> --></a></p>
+                        <a class="btn btn-link btn-circle" role="button" href="#about"><i class="fa-solid fa-angle-down"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    
+
     <!--about section of website-->
     <section class="text-center content-section" id="about">
         <div class="container">
@@ -94,13 +101,14 @@
             </div>
         </div>
     </section>
-    
+
     <style>
         table {
             max-width: 100%;
         }
 
-        th, td {
+        th,
+        td {
             width: auto;
         }
     </style>
@@ -117,7 +125,7 @@
             </div>
         </div>
     </section>
-
+    
     <!--Contact section working finally-->
     <section class="text-center content-section masthead" id="contact" style="background-image:url('assets/img/bike2.jpg');">
         <script src="https://smtpjs.com/v3/smtp.js"></script>
@@ -132,7 +140,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email address:</label>
-                            <input type="email" class="form-control" id="email" name="email" required="@" required>
+                            <input type="email" class="form-control" id="email" name="email" required="@">
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject:</label>
