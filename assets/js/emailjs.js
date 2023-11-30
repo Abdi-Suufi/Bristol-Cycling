@@ -7,7 +7,7 @@ export function sendEmail(e) {
 
   const form = document.getElementById('emailForm');
 
-  emailjs.sendForm('service_jgqmcrf', 'template_hajzas6', form)
+  emailjs.sendForm('service_jgqmcrf', 'template_hajzas6', form) //
     .then((response) => {
       console.log('Email sent:', response);
       form.reset(); // resets the form after sending

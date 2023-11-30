@@ -166,7 +166,5 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/navbar.js"></script>
 
-
 </body>
-
 </html>
