@@ -38,14 +38,14 @@
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
     <nav class="navbar navbar-expand-md fixed-top" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#">Bristol Cycling</a><button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
+        <div class="container"><a class="navbar-brand" href="index.php">Bristol Cycling</a><button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item nav-link"><a class="nav-link active" href="#about">About</a></li> <!--Button links on nav bar. links to sections-->
                     <li class="nav-item nav-link"><a class="nav-link" href="#map">Map</a></li>
                     <li class="nav-item nav-link"><a class="nav-link" href="#table">Table</a></li>
                     <li style="margin-right: 8px;" class="nav-item nav-link"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" id="weather-infoNav"></a></li><!--Displays current weather of bristol-->
+                    <li class="nav-item nav-link"><a class="nav-link" href="weather.php" id="weather-infoNav"></a></li><!--Displays current weather of bristol-->
                 </ul>
             </div>
         </div>
@@ -162,11 +162,10 @@
             <p>Copyright ©&nbsp;Bristol Cycling 2023</p>
         </div>
     </footer>
+
     <!--Bugs out if its in the head tag idk why-->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/navbar.js"></script>
 
-
 </body>
-
 </html>
