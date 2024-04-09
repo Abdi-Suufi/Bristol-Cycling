@@ -66,7 +66,7 @@
 
     <script>
         // Your OpenWeatherMap API key
-        const apiKey = '2645d3a34171a029a0ec6d4265529d9a';
+        const apiKey = 'dc6d0a653946b69ca8692e6fe31d989c';
 
         // Function to display current weather
         function displayCurrentWeather(currentWeather) {
