@@ -80,13 +80,13 @@
                 <div class="row">
 
                     <div class="column">
-                        <img src="assets/img/bike6.jpg" alt="Snow" style="width:60%">
+                        <img src="assets/img/bike6.jpg" style="width:60%">
                     </div>
                     <div class="column">
-                        <img src="assets/img/bike5.jpg" alt="Forest" style="width:60%">
+                        <img src="assets/img/bike5.jpg" style="width:60%">
                     </div>
                     <div class="column">
-                        <img src="assets/img/bike4.jpg" alt="Mountains" style="width:60%">
+                        <img src="assets/img/bike4.jpg" style="width:60%">
                     </div>
                 </div>
             </div>
