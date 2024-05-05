@@ -96,10 +96,12 @@
     <!--section with map not properly integrated the way i want atm-->
     <section id="map" class="text-center content-section masthead" style="height: 700px; background-image:url('assets/img/road.jpg');">
         <div class="container">
-            <div class="row">
-                <div class="map-clean"><iframe allowfullscreen="" frameborder="0" src="https://arcg.is/m0r49" width="100%" height="650px"></iframe></div>
-            </div>
+    <div class="row">
+        <div class="map-clean">
+            <iframe allowfullscreen="" frameborder="0" src="https://arcg.is/14mOnb" width="100%" height="650px"></iframe>
         </div>
+    </div>
+</div>
     </section>
 
     <style>
