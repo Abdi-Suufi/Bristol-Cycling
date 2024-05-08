@@ -65,7 +65,7 @@
     </div>
 
     <script>
-        // Your OpenWeatherMap API key
+        //OpenWeatherMap API key
         const apiKey = 'dc6d0a653946b69ca8692e6fe31d989c';
 
         // Function to display current weather
@@ -86,7 +86,6 @@
                 displayCurrentWeather(currentWeatherData);
             } catch (error) {
                 console.log('Error fetching current weather:', error);
-                // Handle error if needed
             }
         }
         // Function to fetch weather forecast for the next 7 days

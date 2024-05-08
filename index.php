@@ -29,7 +29,8 @@
         background-color: white;
         border-radius: 10px;
     }
-/* 
+
+    /* 
     #weather-infoNav {
   position: fixed;
   right: 0;
@@ -37,34 +38,35 @@
 </style>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
-<nav class="navbar navbar-expand-md fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand" href="index.php">
-            <img src="assets/img/test.png" alt="Bristol Cycling Logo" width="250" height="auto">
-        </a>
-        <button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu">
-            <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item nav-link"><a class="nav-link active" href="#about">About</a></li>
-                <li class="nav-item nav-link"><a class="nav-link" href="#map">Map</a></li>
-                <li class="nav-item nav-link"><a class="nav-link" href="#table">Table</a></li>
-                <li style="margin-right: 8px;" class="nav-item nav-link"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item nav-link"><a class="nav-link" href="weather.php" id="weather-infoNav"></a></li>
-            </ul>
+    <nav class="navbar navbar-expand-md fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">
+                <img src="assets/img/logo.svg" alt="Bristol Cycling Logo" width="250" height="auto">
+            </a>
+            <button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item nav-link"><a class="nav-link active" href="#about">About</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="#map">Map</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="#table">Table</a></li>
+                    <li style="margin-right: 8px;" class="nav-item nav-link"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="weather.php" id="weather-infoNav"></a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-
+    </nav>
     <!--Top page-->
     <header class="masthead" style="background-image:url('assets/img/bike.jpg');">
         <div class="intro-body">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <h1 class="brand-heading mx-auto">Bristol Cycling</h1>
-                        <p class="intro-text">Find your local bike shop for new bikes and servicing.<br>Start Searching! <br><!-- <a id="weather-info" style="color: white"> --></a></p>
+                        <a class="navbar-brand" href="index.php">
+                            <img src="assets/img/logo.svg" alt="Bristol Cycling Logo" width="700" height="auto">
+                        </a>
+                        <p class="intro-text"><br>Start Searching! <br></a></p>
                         <a class="btn btn-link btn-circle" role="button" href="#about"><i class="fa-solid fa-angle-down"></i></a>
                     </div>
                 </div>
@@ -102,12 +104,12 @@
     <!--section with map not properly integrated the way i want atm-->
     <section id="map" class="text-center content-section masthead" style="height: 700px; background-image:url('assets/img/road.jpg');">
         <div class="container">
-    <div class="row">
-        <div class="map-clean">
-            <iframe allowfullscreen="" frameborder="0" src="https://arcg.is/14mOnb" width="100%" height="650px"></iframe>
+            <div class="row">
+                <div class="map-clean">
+                    <iframe allowfullscreen="" frameborder="0" src="https://arcg.is/14mOnb" width="100%" height="650px"></iframe>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
     </section>
 
     <style>
@@ -132,7 +134,7 @@
             </div>
         </div>
     </section>
-    
+
     <!--Contact section working finally-->
     <section class="text-center content-section masthead" id="contact" style="background-image:url('assets/img/bike2.jpg');">
         <script src="https://smtpjs.com/v3/smtp.js"></script>
@@ -174,5 +176,40 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/navbar.js"></script>
 
+    <!--Again idk why i have to bring the script here-->
+    <script>
+        // Function to fetch weather data from OpenWeatherMap
+        document.addEventListener('DOMContentLoaded', function() {
+            const weatherInfo = document.getElementById('weather-info');
+            const weatherInfoNav = document.getElementById('weather-infoNav');
+
+            function getWeather() {
+                const apiKey = '2645d3a34171a029a0ec6d4265529d9a';
+                const city = 'Bristol';
+                const country = 'UK';
+                const units = 'metric';
+
+                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${units}&appid=${apiKey}`;
+
+                fetch(apiUrl)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        // Display weather information
+                        const temperature = data.main.temp;
+                        const description = data.weather[0].description;
+                        const icon = data.weather[0].icon;
+                        weatherInfoNav.innerHTML = `<a>${temperature}°C </a>`;
+                    })
+                    .catch((error) => {
+                        console.error('Error fetching weather data:', error);
+                        weatherInfo.innerHTML = 'Weather data unavailable';
+                    });
+            }
+
+            // Call the function to get weather data when the page loads
+            getWeather();
+        });
+    </script>
 </body>
+
 </html>
