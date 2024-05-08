@@ -2,7 +2,7 @@
 <html data-bs-theme="light" lang="en">
 
 <head>
-    <link rel="shortcut icon" type="image" href="assets/img/bike-favicon.jpg">
+    <link rel="shortcut icon" type="image" href="assets/img/favicon.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Bristol Cycling</title>
@@ -37,19 +37,25 @@
 </style>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
-    <nav class="navbar navbar-expand-md fixed-top" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="index.php">Bristol Cycling</a><button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item nav-link"><a class="nav-link active" href="#about">About</a></li> <!--Button links on nav bar. links to sections-->
-                    <li class="nav-item nav-link"><a class="nav-link" href="#map">Map</a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" href="#table">Table</a></li>
-                    <li style="margin-right: 8px;" class="nav-item nav-link"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" href="weather.php" id="weather-infoNav"></a></li><!--Displays current weather of bristol-->
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-md fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="index.php">
+            <img src="assets/img/test.png" alt="Bristol Cycling Logo" width="250" height="auto">
+        </a>
+        <button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item nav-link"><a class="nav-link active" href="#about">About</a></li>
+                <li class="nav-item nav-link"><a class="nav-link" href="#map">Map</a></li>
+                <li class="nav-item nav-link"><a class="nav-link" href="#table">Table</a></li>
+                <li style="margin-right: 8px;" class="nav-item nav-link"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item nav-link"><a class="nav-link" href="weather.php" id="weather-infoNav"></a></li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!--Top page-->
     <header class="masthead" style="background-image:url('assets/img/bike.jpg');">
