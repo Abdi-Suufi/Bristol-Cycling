@@ -163,7 +163,7 @@
 
     <footer>
         <div class="container text-center">
-            <p>Copyright ©&nbsp;Bristol Cycling 2023</p>
+            <p>Copyright ©&nbsp;Bristol Cycling 2024</p>
         </div>
     </footer>
 

@@ -23,12 +23,12 @@
   }
 </style>
 
-<body style="background-image:url('assets/img/bike.jpg'); background-size: cover;">
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77" style="background-image:url('assets/img/bike.jpg'); background-size: cover;">
   <nav class="navbar navbar-expand-md fixed-top" id="mainNav">
     <div class="container">
-    <a class="navbar-brand" href="index.php">
-                <img src="assets/img/logo.svg" alt="Bristol Cycling Logo" width="250" height="auto">
-            </a>
+      <a class="navbar-brand" href="index.php">
+        <img src="assets/img/logo.svg" alt="Bristol Cycling Logo" width="250" height="auto">
+      </a>
       <button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu">
         <i class="fa fa-bars"></i>
       </button>
@@ -40,7 +40,7 @@
     </div>
   </nav>
   <div class="container mt-5"><br>
-    <div class="card text-white bg-dark mb-3 text-center" id="table-test" >
+    <div class="card text-white bg-dark mb-3 text-center" id="table-test">
       <div class="card-header">Current Weather</div>
       <div class="card-body">
         <p class="card-text">Temperature: <span id="currentTemp"></span>°C</p>
@@ -62,7 +62,7 @@
           </tr>
         </thead>
         <tbody id="weatherTable">
-          </tbody>
+        </tbody>
       </table>
     </div>
   </div>
@@ -100,18 +100,18 @@
         const weatherTable = document.getElementById('weatherTable');
         weatherTable.innerHTML = ''; // Clears the table before adding new data
 
-        const forecastsPerDay = {}; 
+        const forecastsPerDay = {};
 
         forecastData.list.forEach(dayForecast => {
-          const date = new Date(dayForecast.dt * 1000).toDateString(); 
+          const date = new Date(dayForecast.dt * 1000).toDateString();
 
           if (!forecastsPerDay[date] || Math.abs(dayForecast.dt - getNoonTimestamp(date)) < Math.abs(forecastsPerDay[date].dt - getNoonTimestamp(date))) {
             forecastsPerDay[date] = dayForecast;
           }
         });
 
-        Object.values(forecastsPerDay).slice(1).forEach(dayForecast => { 
-            const date = new Date(dayForecast.dt * 1000); 
+        Object.values(forecastsPerDay).slice(1).forEach(dayForecast => {
+          const date = new Date(dayForecast.dt * 1000);
 
           const row = document.createElement('tr');
           row.innerHTML = `
@@ -124,7 +124,7 @@
           weatherTable.appendChild(row);
         });
 
-      } catch (error) { 
+      } catch (error) {
         console.log('Error fetching weather forecast:', error);
         const weatherTable = document.getElementById('weatherTable');
         weatherTable.innerHTML = '<tr><td colspan="5">Failed to fetch weather forecast</td></tr>';
@@ -135,7 +135,7 @@
     function getNoonTimestamp(dateString) {
       const date = new Date(dateString);
       date.setHours(12, 0, 0, 0);
-      return date.getTime() / 1000 ; 
+      return date.getTime() / 1000;
     }
 
     // Call the function to get current weather on page load
@@ -144,12 +144,8 @@
     // Call the function to get weather forecast on page load
     getWeatherForecast();
   </script>
-
-<footer>
-        <div class="container text-center">
-            <p>Copyright ©&nbsp;Bristol Cycling 2023</p>
-        </div>
-    </footer>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/navbar.js"></script>
 </body>
 
 </html>
