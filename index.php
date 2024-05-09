@@ -58,15 +58,15 @@
         </div>
     </nav>
     <!--Top page-->
-    <header class="masthead" style="background-image:url('assets/img/bike.jpg');">
+    <header class="masthead" style="background-image:url('assets/img/bike.jpg'); ">
         <div class="intro-body">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <a class="navbar-brand" href="index.php">
-                            <img src="assets/img/logo.svg" alt="Bristol Cycling Logo" width="700" height="auto">
+                            <img src="assets/img/logo.svg" alt="Bristol Cycling Logo" width="700" height="auto" style="max-width: 100%;">
                         </a>
-                        <p class="intro-text"><br>Start Searching! <br></a></p>
+                        <p class="intro-text"><br>Start Searching! <br></p>
                         <a class="btn btn-link btn-circle" role="button" href="#about"><i class="fa-solid fa-angle-down"></i></a>
                     </div>
                 </div>
@@ -76,23 +76,23 @@
 
     <!--about section of website-->
     <section class="text-center content-section" id="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <h2>About Bristol Cycling</h2>
-                <p>Bristol Cycling is a user-friendly website designed to cater to the needs of cycling enthusiasts
-                    and riders of all levels who are looking to explore new areas and find nearby cycle shops with
-                    ease. This platform offers a variety of features and functionalities to make your cycling
-                    experience more enjoyable and convenient.</p>
-            </div>
+        <div class="container">
             <div class="row">
-                <?php
-                include('flickr.php');
-                ?>
+                <div class="col-lg-8 mx-auto">
+                    <h2>About Bristol Cycling</h2>
+                    <p>Bristol Cycling is a user-friendly website designed to cater to the needs of cycling enthusiasts
+                        and riders of all levels who are looking to explore new areas and find nearby cycle shops with
+                        ease. This platform offers a variety of features and functionalities to make your cycling
+                        experience more enjoyable and convenient.</p>
+                </div>
+                <div class="row">
+                    <?php
+                    include('flickr.php');
+                    ?>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!--section with map not properly integrated the way i want atm-->
     <section id="map" class="text-center content-section masthead" style="height: 700px; background-image:url('assets/img/road.jpg');">
@@ -118,30 +118,22 @@
 
     <!--Section to display table-->
     <section class="text-center content-section masthead" id="table">
-    <div class="container">
-        <div class="col-lg-8 mx-auto">
-            <h2 class="center-text">Details of bike shops and the services they provide</h2>
-            <!-- Table for larger screens -->
-            <div class="table-responsive d-none d-lg-block">
-                <table class="table table-striped">
-                    <!-- Include your table content here -->
-                    <?php include 'database.php'; ?>
-                </table>
-            </div>
-            <!-- Text representation of table data for smaller screens -->
-            <div class="text-table d-lg-none">
-                <?php 
-                // Output table data as formatted text
-                include 'database_text.php';
-                ?>
-            </div>
-            <!-- Download link for CSV file -->
-            <div class="text-center">
-                <a download="assets/files/cycle_shops.csv"class="btn btn-dark">Download as CSV</a>
+        <div class="container">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="center-text">Details of bike shops and the services they provide</h2>
+                <!-- Table for larger screens -->
+                <div class="table-responsive d-none d-lg-block">
+                    <table class="table table-striped">
+                        <?php include 'database.php'; ?>
+                    </table>
+                </div>
+                <!-- Download link for CSV file for mobile users since table too big for them-->
+                <div class="text-center">
+                    <a download href="assets/files/cycle_shops.pdf" class="btn btn-dark">Download as CSV</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!--Contact section working finally-->
     <section class="text-center content-section masthead" id="contact" style="background-image:url('assets/img/bike2.jpg');">
