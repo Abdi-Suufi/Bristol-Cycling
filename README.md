@@ -4,4 +4,4 @@
 ## How to run
 If you want to run the website locally you'll need to use Laragon or XAMPP
 Laragon - (Link)[https://laragon.org/download/index.html]
-XAMPP - (Link)[https://www.apachefriends.org/download.html]
+XAMPP - [https://www.apachefriends.org/download.html](Link)
