@@ -52,7 +52,7 @@
                     <li class="nav-item nav-link"><a class="nav-link" href="#map">Map</a></li>
                     <li class="nav-item nav-link"><a class="nav-link" href="#table">Table</a></li>
                     <li style="margin-right: 8px;" class="nav-item nav-link"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" href="weather.php" id="weather-infoNav"></a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="weather.php" id="currentTemp"></a></li>
                 </ul>
             </div>
         </div>
@@ -76,30 +76,23 @@
 
     <!--about section of website-->
     <section class="text-center content-section" id="about">
-        <div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>About Bristol Cycling</h2>
+                <p>Bristol Cycling is a user-friendly website designed to cater to the needs of cycling enthusiasts
+                    and riders of all levels who are looking to explore new areas and find nearby cycle shops with
+                    ease. This platform offers a variety of features and functionalities to make your cycling
+                    experience more enjoyable and convenient.</p>
+            </div>
             <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2>About Bristol Cycling</h2>
-                    <p>Bristol Cycling is a user-friendly website designed to cater to the needs of cycling enthusiasts
-                        and riders of all levels who are looking to explore new areas and find nearby cycle shops with
-                        ease. This platform offers a variety of features and functionalities to make your cycling
-                        experience more enjoyable and convenient.</p>
-                </div>
-                <div class="row">
-
-                    <div class="column">
-                        <img src="assets/img/bike6.jpg" style="width:60%">
-                    </div>
-                    <div class="column">
-                        <img src="assets/img/bike5.jpg" style="width:60%">
-                    </div>
-                    <div class="column">
-                        <img src="assets/img/bike4.jpg" style="width:60%">
-                    </div>
-                </div>
+                <?php
+                include('flickr.php');
+                ?>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!--section with map not properly integrated the way i want atm-->
     <section id="map" class="text-center content-section masthead" style="height: 700px; background-image:url('assets/img/road.jpg');">
@@ -125,15 +118,30 @@
 
     <!--Section to display table-->
     <section class="text-center content-section masthead" id="table">
-        <div class="container">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="center-text">Details of bike shops and the services they provide</h2>
-                <?php
-                include 'database.php';
+    <div class="container">
+        <div class="col-lg-8 mx-auto">
+            <h2 class="center-text">Details of bike shops and the services they provide</h2>
+            <!-- Table for larger screens -->
+            <div class="table-responsive d-none d-lg-block">
+                <table class="table table-striped">
+                    <!-- Include your table content here -->
+                    <?php include 'database.php'; ?>
+                </table>
+            </div>
+            <!-- Text representation of table data for smaller screens -->
+            <div class="text-table d-lg-none">
+                <?php 
+                // Output table data as formatted text
+                include 'database_text.php';
                 ?>
             </div>
+            <!-- Download link for CSV file -->
+            <div class="text-center">
+                <a download="assets/files/cycle_shops.csv"class="btn btn-dark">Download as CSV</a>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!--Contact section working finally-->
     <section class="text-center content-section masthead" id="contact" style="background-image:url('assets/img/bike2.jpg');">
@@ -178,37 +186,29 @@
 
     <!--Again idk why i have to bring the script here-->
     <script>
-        // Function to fetch weather data from OpenWeatherMap
-        document.addEventListener('DOMContentLoaded', function() {
-            const weatherInfo = document.getElementById('weather-info');
-            const weatherInfoNav = document.getElementById('weather-infoNav');
+        //OpenWeatherMap API key
+        const apiKey = '2645d3a34171a029a0ec6d4265529d9a';
 
-            function getWeather() {
-                const apiKey = '2645d3a34171a029a0ec6d4265529d9a';
-                const city = 'Bristol';
-                const country = 'UK';
-                const units = 'metric';
+        // Function to display current weather
+        function displayCurrentWeather(currentWeather) {
+            document.getElementById('currentTemp').innerText = currentWeather.main.temp + "°C";
+        }
 
-                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${units}&appid=${apiKey}`;
+        // Function to fetch current weather
+        async function getCurrentWeather() {
+            try {
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Bristol&appid=${apiKey}&units=metric`);
+                const currentWeatherData = await response.json();
 
-                fetch(apiUrl)
-                    .then((response) => response.json())
-                    .then((data) => {
-                        // Display weather information
-                        const temperature = data.main.temp;
-                        const description = data.weather[0].description;
-                        const icon = data.weather[0].icon;
-                        weatherInfoNav.innerHTML = `<a>${temperature}°C </a>`;
-                    })
-                    .catch((error) => {
-                        console.error('Error fetching weather data:', error);
-                        weatherInfo.innerHTML = 'Weather data unavailable';
-                    });
+                // Display current weather in the card
+                displayCurrentWeather(currentWeatherData);
+            } catch (error) {
+                console.log('Error fetching current weather:', error);
             }
+        }
 
-            // Call the function to get weather data when the page loads
-            getWeather();
-        });
+        // Call the function to get current weather on page load
+        getCurrentWeather();
     </script>
 </body>
 
