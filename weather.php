@@ -19,10 +19,11 @@
   #table-test {
     max-width: 200px;
     margin: 0 auto;
+    margin-top: 30px;
   }
 </style>
 
-<body style="background: rgb(0,0,0); background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(11,11,11,1) 7%, rgba(45,45,45,1) 52%, rgba(17,17,17,1) 87%, rgba(0,0,0,1) 100%); ">
+<body style="background-image:url('assets/img/bike.jpg'); background-size: cover;">
   <nav class="navbar navbar-expand-md fixed-top" id="mainNav">
     <div class="container">
     <a class="navbar-brand" href="index.php">
@@ -39,7 +40,7 @@
     </div>
   </nav>
   <div class="container mt-5"><br>
-    <div class="card text-white bg-dark mb-3 text-center" id="table-test">
+    <div class="card text-white bg-dark mb-3 text-center" id="table-test" >
       <div class="card-header">Current Weather</div>
       <div class="card-body">
         <p class="card-text">Temperature: <span id="currentTemp"></span>°C</p>
