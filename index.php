@@ -149,8 +149,8 @@
                             <input class="form-control" type="text" name="subject" id="subject" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">message</label>
-                            <input class="form-control" type="text" name="message" id="message" required>
+                            <label for="message">Message</label>
+                            <textarea class="form-control" name="message" id="message" rows="5" required></textarea>
                         </div>
 
                         <input type="submit" class="btn btn-dark" style="margin: 4px;" id="button" value="Send Email">
