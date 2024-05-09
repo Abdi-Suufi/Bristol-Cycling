@@ -144,6 +144,12 @@
     // Call the function to get weather forecast on page load
     getWeatherForecast();
   </script>
+
+<footer>
+        <div class="container text-center">
+            <p>Copyright ©&nbsp;Bristol Cycling 2023</p>
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -79,8 +79,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h2>About Bristol Cycling</h2>
-                    <p>Bristol Cycling is a user-friendly website designed to cater to the needs of cycling enthusiasts
+                    <h2>About Bristol Cycling shops and services</h2>
+                    <p>Bristol Cycling shops and services is a user-friendly website designed to cater to the needs of cycling enthusiasts
                         and riders of all levels who are looking to explore new areas and find nearby cycle shops with
                         ease. This platform offers a variety of features and functionalities to make your cycling
                         experience more enjoyable and convenient.</p>
@@ -142,25 +142,27 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Contact</h2>
-                    <form onSubmit="sendEmail(event)" id="emailForm">
+                    <form id="form">
                         <div class="form-group">
-                            <label for="name">Full name:</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                            <label for="name">name</label>
+                            <input class="form-control" type="text" name="name" id="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email address:</label>
-                            <input type="email" class="form-control" id="email" name="email" required="@">
+                            <label for="email">email</label>
+                            <input class="form-control" type="text" name="email" id="email" required="@" required=".">
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject:</label>
-                            <input type="text" class="form-control" id="subject" name="subject" required>
+                            <label for="subject">subject</label>
+                            <input class="form-control" type="text" name="subject" id="subject" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message:</label>
-                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            <label for="message">message</label>
+                            <input class="form-control" type="text" name="message" id="message" required>
                         </div>
-                        <button type="submit" class="btn btn-dark" style="margin: 4px;">Send Message</button>
+
+                        <input type="submit" class="btn btn-dark" style="margin: 4px;" id="button" value="Send Email">
                     </form>
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
                 </div>
             </div>
         </div>
@@ -176,7 +178,7 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/navbar.js"></script>
 
-    <!--Again idk why i have to bring the script here-->
+    <!--Again idk why i have to bring the script here, i swear i know how to link another file-->
     <script>
         //OpenWeatherMap API key
         const apiKey = '2645d3a34171a029a0ec6d4265529d9a';
@@ -201,6 +203,31 @@
 
         // Call the function to get current weather on page load
         getCurrentWeather();
+    </script>
+
+    <script>
+        emailjs.init('frYMEZHApy2ByW99C')
+
+        const btn = document.getElementById('button');
+
+        document.getElementById('form')
+            .addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                btn.value = 'Sending...';
+
+                const serviceID = 'default_service';
+                const templateID = 'template_hajzas6';
+
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                        btn.value = 'Send Email';
+                        alert('Query Sent!'); //alert once submitted
+                        form.reset(); //clears form after submission as well
+                    }, (err) => {
+                        alert('Error sending query!');
+                    });
+            });
     </script>
 </body>
 
