@@ -1,13 +1,13 @@
 import emailjs from 'emailjs-com';
 
-emailjs.init('frYMEZHApy2ByW99C'); // Your actual User ID
+emailjs.init('frYMEZHApy2ByW99C');
 
 export function sendEmail(e) {
   e.preventDefault();
 
-  const form = document.getElementById('emailForm'); // Get your form element
+  const form = document.getElementById('emailForm');
 
-  // Construct the data object for EmailJS
+  // Constructing the data object for EmailJS
   const formData = {
     name: form.elements.name.value,
     email: form.elements.email.value,

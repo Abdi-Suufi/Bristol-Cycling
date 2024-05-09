@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <link rel="stylesheet" href="assets/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/56e72382bd.js" crossorigin="anonymous"></script> <!--icon for l-->
+    <script src="https://kit.fontawesome.com/56e72382bd.js" crossorigin="anonymous"></script> <!--icon for few arrows im using-->
     <script src="assets/js/emailjs.js"></script>
     <script src="assets/js/weatherapi.js"></script>
     <link rel="stylesheet" href="styles.css">
@@ -29,12 +29,6 @@
         background-color: white;
         border-radius: 10px;
     }
-
-    /* 
-    #weather-infoNav {
-  position: fixed;
-  right: 0;
-} */
 </style>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
@@ -137,7 +131,6 @@
 
     <!--Contact section working finally-->
     <section class="text-center content-section masthead" id="contact" style="background-image:url('assets/img/bike2.jpg');">
-        <script src="https://smtpjs.com/v3/smtp.js"></script>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">

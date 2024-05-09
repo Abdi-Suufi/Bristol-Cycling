@@ -67,7 +67,6 @@
   </div>
 
   <script>
-    // OpenWeatherMap API key
     const apiKey = '2645d3a34171a029a0ec6d4265529d9a';
 
     // Function to display current weather
@@ -94,11 +93,11 @@
     // Function to fetch weather forecast for the next 7 days
     async function getWeatherForecast() {
       try {
-        const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=Bristol&appid=2645d3a34171a029a0ec6d4265529d9a&units=metric`);
+        const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=Bristol&appid=${apiKey}&units=metric`);
         const forecastData = await response.json();
 
         const weatherTable = document.getElementById('weatherTable');
-        weatherTable.innerHTML = ''; // Clear the table before adding new data
+        weatherTable.innerHTML = ''; // Clears the table before adding new data
 
         const forecastsPerDay = {}; 
 

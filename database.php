@@ -6,16 +6,7 @@
     <button onclick="filterTableByRegion('North Somerset')" class="btn btn-dark">North Somerset</button>
     <button onclick="filterTableByRegion('South Gloucestershire')" class="btn btn-dark">South Gloucestershire</button>
     <table class="table table-striped table-dark">
-        <!-- <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Description</th>
-            <th>Phone</th>
-            <th>Services</th>
-            <th>Region</th>
-        </tr> -->
-
-        <!--Database connection-->
+        
         <?php
         $conn = mysqli_connect("localhost", "root", "", "cycle_shop");
         if ($conn->connect_error) {

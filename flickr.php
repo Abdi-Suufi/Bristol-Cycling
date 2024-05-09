@@ -3,17 +3,16 @@
 // Flickr API endpoint
 $endpoint = 'https://www.flickr.com/services/rest/';
 
-// API key
 $api_key = 'ebcda528351089e3d90904c0c0998dee';
 
-// Parameters for the API request
+//Parameters for the API request
 $params = [
     'method' => 'flickr.photos.search',
     'api_key' => $api_key,
-    'text' => 'bike',
+    'text' => 'bicycle',
     'format' => 'json',
     'nojsoncallback' => 1,
-    'per_page' => 3 // Number of images you want to fetch
+    'per_page' => 3 //Only need 3 images on about section
 ];
 
 // Construct the URL for the API request
@@ -40,6 +39,6 @@ if ($response['stat'] == 'ok') {
         echo '<div class="column"><img src="' . $image_url . '" style="width:60%"></div>';
     }
 } else {
-    echo 'Error fetching images from Flickr API';
+    echo 'Error fetching images from Flickr API'; //error message
 }
 ?>
