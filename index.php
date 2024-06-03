@@ -114,7 +114,7 @@
     <section class="text-center content-section masthead" id="table">
         <div class="container">
             <div class="col-lg-8 mx-auto">
-                <h2 class="center-text">Details of bike shops and the services they provide</h2>
+                <h2 class="center-text">Details of bike shops and the services they provide for you</h2>
                 <!-- Table for larger screens -->
                 <div class="table-responsive d-none d-lg-block">
                     <table class="table table-striped">
