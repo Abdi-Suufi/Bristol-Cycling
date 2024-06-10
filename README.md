@@ -64,19 +64,22 @@ To set up the project locally, follow these steps:
 
 ## Screenshots
 ### Header Section:
-![Image of Header section](https://github.com/Abdi-Suufi/bristol-cycling/blob/main/assets/img/screenshot-header.png)
+![Image of Header section](https://github.com/Abdi-Suufi/Bristol-Cycling/blob/Assets/images/Home.png)
 
-### About Section:
-![Image of About section](https://github.com/Abdi-Suufi/bristol-cycling/blob/main/assets/img/screenshot-about.png)
+### About Section (Including Flickr Images):
+![Image of About section](https://github.com/Abdi-Suufi/Bristol-Cycling/blob/Assets/images/About.png)
 
 ### Map Section:
-![Image of Map section](https://github.com/Abdi-Suufi/bristol-cycling/blob/main/assets/img/screenshot-map.png)
+![Image of Map section](https://github.com/Abdi-Suufi/Bristol-Cycling/blob/Assets/images/Map.png)
 
 ### Table Section:
-![Image of Table section](https://github.com/Abdi-Suufi/bristol-cycling/blob/main/assets/img/screenshot-table.png)
+![Image of Table section](https://github.com/Abdi-Suufi/Bristol-Cycling/blob/Assets/images/Table.png)
 
 ### Contact Section:
-![Image of Contact section](https://github.com/Abdi-Suufi/bristol-cycling/blob/main/assets/img/screenshot-contact.png)
+![Image of Contact section](https://github.com/Abdi-Suufi/Bristol-Cycling/blob/Assets/images/Contact.png)
+
+### Weather Page:
+![Image of Weather Page](https://github.com/Abdi-Suufi/Bristol-Cycling/blob/Assets/images/Weather.png)
 
 ## Contributing
 If you would like to contribute to this project, please follow these steps:
