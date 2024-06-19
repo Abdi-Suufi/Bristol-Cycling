@@ -68,21 +68,22 @@
   </div>
 
   <script>
-    const apiKey = '2645d3a34171a029a0ec6d4265529d9a';
+    const apiKey = '0aac235af5e24577b2d130100241606';
 
     // Function to display current weather
     function displayCurrentWeather(currentWeather) {
-      document.getElementById('currentTemp').innerText = currentWeather.main.temp;
-      document.getElementById('currentWeather').innerText = currentWeather.weather[0].description;
-      document.getElementById('currentHumidity').innerText = currentWeather.main.humidity;
-      document.getElementById('currentWindSpeed').innerText = currentWeather.wind.speed;
+      document.getElementById('currentTemp').innerText = currentWeather.temp_c;
+      document.getElementById('currentWeather').innerText = currentWeather.condition.text;
+      document.getElementById('currentHumidity').innerText = currentWeather.humidity;
+      document.getElementById('currentWindSpeed').innerText = currentWeather.wind_mph * 0.44704; // Convert mph to m/s
     }
 
     // Function to fetch current weather
     async function getCurrentWeather() {
       try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Bristol&appid=${apiKey}&units=metric`);
-        const currentWeatherData = await response.json();
+        const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Bristol&aqi=no`);
+        const data = await response.json();
+        const currentWeatherData = data.current;
 
         // Display current weather in the card
         displayCurrentWeather(currentWeatherData);
@@ -94,32 +95,23 @@
     // Function to fetch weather forecast for the next 7 days
     async function getWeatherForecast() {
       try {
-        const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=Bristol&appid=${apiKey}&units=metric`);
-        const forecastData = await response.json();
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=Bristol&days=7&aqi=no&alerts=no`);
+        const data = await response.json();
+        const forecastData = data.forecast.forecastday;
 
         const weatherTable = document.getElementById('weatherTable');
         weatherTable.innerHTML = ''; // Clears the table before adding new data
 
-        const forecastsPerDay = {};
-
-        forecastData.list.forEach(dayForecast => {
-          const date = new Date(dayForecast.dt * 1000).toDateString();
-
-          if (!forecastsPerDay[date] || Math.abs(dayForecast.dt - getNoonTimestamp(date)) < Math.abs(forecastsPerDay[date].dt - getNoonTimestamp(date))) {
-            forecastsPerDay[date] = dayForecast;
-          }
-        });
-
-        Object.values(forecastsPerDay).slice(1).forEach(dayForecast => {
-          const date = new Date(dayForecast.dt * 1000);
+        forecastData.forEach(dayForecast => {
+          const date = new Date(dayForecast.date);
 
           const row = document.createElement('tr');
           row.innerHTML = `
             <td>${date.toDateString()}</td>
-            <td>${dayForecast.main.temp}°C</td>
-            <td>${dayForecast.weather[0].description}</td>
-            <td>${dayForecast.main.humidity}%</td>
-            <td>${dayForecast.wind.speed.toFixed(1)} m/s</td> 
+            <td>${dayForecast.day.avgtemp_c}°C</td>
+            <td>${dayForecast.day.condition.text}</td>
+            <td>${dayForecast.day.avghumidity}%</td>
+            <td>${(dayForecast.day.maxwind_mph * 0.44704).toFixed(1)} m/s</td>
           `;
           weatherTable.appendChild(row);
         });
@@ -129,13 +121,6 @@
         const weatherTable = document.getElementById('weatherTable');
         weatherTable.innerHTML = '<tr><td colspan="5">Failed to fetch weather forecast</td></tr>';
       }
-    }
-
-    // Helper function to get a timestamp for noon of a given date
-    function getNoonTimestamp(dateString) {
-      const date = new Date(dateString);
-      date.setHours(12, 0, 0, 0);
-      return date.getTime() / 1000;
     }
 
     // Call the function to get current weather on page load
