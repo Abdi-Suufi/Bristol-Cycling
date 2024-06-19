@@ -109,7 +109,7 @@
           row.innerHTML = `
             <td>${date.toDateString()}</td>
             <td>${dayForecast.day.avgtemp_c}°C</td>
-            <td>${dayForecast.day.condition.text}</td>
+            <td><img src="${dayForecast.day.condition.icon}" alt="Weather Icon"></td>
             <td>${dayForecast.day.avghumidity}%</td>
             <td>${(dayForecast.day.maxwind_mph * 0.44704).toFixed(1)} m/s</td>
           `;

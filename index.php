@@ -173,19 +173,19 @@
 
     <!--Again idk why i have to bring the script here, i swear i know how to link another file-->
     <script>
-        //OpenWeatherMap API key
-        const apiKey = '2645d3a34171a029a0ec6d4265529d9a';
+        const apiKey = '0aac235af5e24577b2d130100241606';
 
         // Function to display current weather
-        function displayCurrentWeather(currentWeather) {
-            document.getElementById('currentTemp').innerText = currentWeather.main.temp + "°C";
+        function displayCurrentWeather(weather) {
+            document.getElementById('currentTemp').innerText = weather.temp_c + "°C";
         }
 
         // Function to fetch current weather
         async function getCurrentWeather() {
             try {
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Bristol&appid=${apiKey}&units=metric`);
-                const currentWeatherData = await response.json();
+                const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Bristol&aqi=no`);
+                const data = await response.json();
+                const currentWeatherData = data.current;
 
                 // Display current weather in the card
                 displayCurrentWeather(currentWeatherData);
