@@ -45,3 +45,13 @@ td {
   background-color: white;
   border-radius: 10px;
 }
+
+/* Navbar background on scroll */
+#mainNav {
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+#mainNav.navbar-shrink {
+  background-color: rgba(0, 0, 0, 0.8);
+}
