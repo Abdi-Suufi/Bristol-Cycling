@@ -5,37 +5,20 @@
     <link rel="shortcut icon" type="image" href="assets/img/favicon.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Find cycling shops and services in Bristol, view an interactive map, and check local weather for your rides.">
     <title>Bristol Cycling</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <link rel="stylesheet" href="assets/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/56e72382bd.js" crossorigin="anonymous"></script> <!--icon for few arrows im using-->
-    <script src="assets/js/emailjs.js"></script>
-    <script src="assets/js/weatherapi.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<!--Doesn't work when i put it on styles.css idk why-->
-<style>
-    ::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: black;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: white;
-        border-radius: 10px;
-    }
-</style>
+<!-- Removed inline scrollbar styles now handled in styles.css -->
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
     <nav class="navbar navbar-expand-md fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <img src="assets/img/logo.svg" alt="Bristol Cycling Logo" width="250" height="auto">
+                <img src="assets/img/logo.svg" alt="Bristol Cycling Logo" width="250" height="auto" loading="eager" decoding="async">
             </a>
             <button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu">
                 <i class="fa fa-bars"></i>
@@ -57,8 +40,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
+                        <h1 class="visually-hidden">Bristol Cycling</h1>
                         <a class="navbar-brand" href="index.php">
-                            <img src="assets/img/logo.svg" alt="Bristol Cycling Logo" width="700" height="auto" style="max-width: 100%;">
+                            <img src="assets/img/logo.svg" alt="Bristol Cycling Logo" width="700" height="auto" style="max-width: 100%;" loading="lazy" decoding="async">
                         </a>
                         <p class="intro-text"><br>Start Searching! <br></p>
                         <a class="btn btn-link btn-circle" role="button" href="#about"><i class="fa-solid fa-angle-down"></i></a>
@@ -93,7 +77,7 @@
         <div class="container">
             <div class="row">
                 <div class="map-clean">
-                    <iframe allowfullscreen="" frameborder="0" src="https://arcg.is/14mOnb" width="100%" height="650px"></iframe>
+                    <iframe title="Cycling map of Bristol" loading="lazy" allowfullscreen="" frameborder="0" src="https://arcg.is/14mOnb" width="100%" height="650px"></iframe>
                 </div>
             </div>
         </div>
@@ -123,7 +107,7 @@
                 </div>
                 <!-- Download link for CSV file for mobile users since table too big for them-->
                 <div class="text-center">
-                    <a download href="assets/files/cycle_shops.pdf" class="btn btn-dark">Download as CSV</a>
+                    <a download href="assets/files/cycle_shops.pdf" class="btn btn-dark">Download PDF</a>
                 </div>
             </div>
         </div>
@@ -137,15 +121,15 @@
                     <h2>Contact</h2>
                     <form id="form">
                         <div class="form-group">
-                            <label for="name">name</label>
+                            <label for="name">Name</label>
                             <input class="form-control" type="text" name="name" id="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">email</label>
-                            <input class="form-control" type="text" name="email" id="email" required="@" required=".">
+                            <label for="email">Email</label>
+                            <input class="form-control" type="email" name="email" id="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">subject</label>
+                            <label for="subject">Subject</label>
                             <input class="form-control" type="text" name="subject" id="subject" required>
                         </div>
                         <div class="form-group">

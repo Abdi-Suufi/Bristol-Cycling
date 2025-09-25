@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Current weather and 7-day forecast for Bristol, UK.">
   <link rel="shortcut icon" type="image" href="assets/img/favicon.png">
   <title>Weather</title>
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -27,7 +28,7 @@
   <nav class="navbar navbar-expand-md fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand" href="index.php">
-        <img src="assets/img/logo.svg" alt="Bristol Cycling Logo" width="250" height="auto">
+        <img src="assets/img/logo.svg" alt="Bristol Cycling Logo" width="250" height="auto" loading="eager" decoding="async">
       </a>
       <button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu">
         <i class="fa fa-bars"></i>
@@ -75,7 +76,7 @@
       document.getElementById('currentTemp').innerText = currentWeather.temp_c;
       document.getElementById('currentWeather').innerText = currentWeather.condition.text;
       document.getElementById('currentHumidity').innerText = currentWeather.humidity;
-      document.getElementById('currentWindSpeed').innerText = currentWeather.wind_mph * 0.44704; // Convert mph to m/s
+      document.getElementById('currentWindSpeed').innerText = (currentWeather.wind_mph * 0.44704).toFixed(1);
     }
 
     // Function to fetch current weather
@@ -109,7 +110,7 @@
           row.innerHTML = `
             <td>${date.toDateString()}</td>
             <td>${dayForecast.day.avgtemp_c}°C</td>
-            <td><img src="${dayForecast.day.condition.icon}" alt="Weather Icon"></td>
+            <td><img src="${dayForecast.day.condition.icon}" alt="Weather Icon" loading="lazy" decoding="async"></td>
             <td>${dayForecast.day.avghumidity}%</td>
             <td>${(dayForecast.day.maxwind_mph * 0.44704).toFixed(1)} m/s</td>
           `;
