@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<!-- Removed inline scrollbar styles now handled in styles.css -->
-
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
     <nav class="navbar navbar-expand-md fixed-top" id="mainNav">
         <div class="container">
